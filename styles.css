@@ -298,3 +298,45 @@ footer{background:#f2efe8;border-color:#e6dfd2}
     radial-gradient(ellipse at 50% 72%,rgba(214,198,166,.25),transparent 40%),
     linear-gradient(180deg,#fff 0%,#faf8f3 65%,#f0ebdf 100%)}
 }
+
+
+/* REDEEMED — refreshed soft champagne backdrop */
+:root{--page-ivory:#fbfaf7;--page-cream:#f4f0e7;--antique-gold:#a88a52}
+body{background:var(--page-ivory)}
+.announcement,footer{background:#f8f6f1}
+.site-header{background:rgba(251,250,247,.94)}
+.hero-editorial{
+  background:
+    radial-gradient(ellipse at 78% 42%,rgba(208,187,145,.22),transparent 34%),
+    radial-gradient(ellipse at 10% 88%,rgba(228,219,201,.34),transparent 38%),
+    linear-gradient(115deg,#fff 0%,#fbfaf7 48%,#f3eee4 100%);
+}
+.hero-editorial:before,.hero-editorial:after{border-color:rgba(168,138,82,.11)}
+.hero-grain{
+  opacity:.13;
+  background-image:radial-gradient(rgba(125,105,70,.16) .55px,transparent .7px);
+  background-size:7px 7px;
+}
+.hero-art:before{
+  background:radial-gradient(circle,rgba(213,194,157,.42),rgba(235,227,211,.2) 48%,transparent 72%);
+}
+.hero-art:after{border-color:rgba(168,138,82,.13)}
+.art-orbit{border-color:rgba(168,138,82,.16)}
+.orbit-two{border-color:rgba(197,166,107,.2)}
+.marquee{background:#f4f0e8;border-color:#e9e1d2}
+.intro,.collection,.about{background:#fbfaf7}
+.product-art{background:linear-gradient(145deg,#f6f4ef,#eee9df)}
+.art-tee{background:linear-gradient(145deg,#f3f0e8,#eae4d8)}
+.lifestyle-band{
+  background:
+    radial-gradient(ellipse at 82% 48%,rgba(211,190,151,.32),transparent 37%),
+    linear-gradient(110deg,#f8f6f1 0%,#eee8dc 62%,#f9f7f2 100%);
+}
+footer{background:linear-gradient(180deg,#f8f6f1,#f3efe7)}
+@media(max-width:650px){
+ .hero-editorial{
+  background:
+   radial-gradient(ellipse at 80% 57%,rgba(210,190,151,.25),transparent 42%),
+   linear-gradient(180deg,#fff 0%,#fbfaf7 62%,#f2ede3 100%);
+ }
+}
