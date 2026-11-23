@@ -375,3 +375,17 @@ footer{background:linear-gradient(180deg,#f8f6f1,#f3efe7)}
 @media(max-width:700px){
  .lifestyle-symbol{right:-8%;width:230px;opacity:.55}
 }
+
+
+/* LIVE FOURTHWALL PRODUCT CATALOG */
+.catalog-status{grid-column:1/-1;text-align:center;color:#766b57;padding:42px 12px;font-size:13px;line-height:1.7}
+.live-product{overflow:hidden}
+.live-product-image{height:390px;display:grid;place-items:center;overflow:hidden;background:linear-gradient(145deg,#f6f4ef,#eee9df)}
+.live-product-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}
+.live-product:hover .live-product-image img{transform:scale(1.035)}
+.product-image-fallback{font:800 100px "Barlow Condensed",sans-serif;color:rgba(155,123,63,.25)}
+.live-product-info{padding:19px 3px 13px}
+.live-product-info h3{line-height:1.4}
+.live-product .text-link{display:flex;align-items:center;justify-content:space-between}
+.live-product .text-link[aria-disabled="true"]{opacity:.5;cursor:not-allowed}
+@media(max-width:700px){.live-product-image{height:320px}}
