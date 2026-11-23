@@ -1,42 +1,27 @@
-const toggle=document.querySelector('.menu-toggle');const nav=document.querySelector('.main-nav');if(toggle&&nav){toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}));}
+const toggle=document.querySelector('.menu-toggle');const nav=document.querySelector('.main-nav');
+if(toggle&&nav){toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}));}
+document.querySelectorAll('.nav-drop-trigger').forEach(button=>button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')==='true';document.querySelectorAll('.nav-drop-trigger').forEach(b=>b.setAttribute('aria-expanded','false'));button.setAttribute('aria-expanded',String(!open));}));
+document.addEventListener('click',event=>{if(!event.target.closest('.nav-dropdown'))document.querySelectorAll('.nav-drop-trigger').forEach(b=>b.setAttribute('aria-expanded','false'));});
 const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
-
-/* Fourthwall public Storefront API — read-only product catalog */
 const FW_TOKEN='ptkn_'+'3274687f-c7b6-4bbd-a3a4-32a72e808669';
-const FW_API='https://storefront-api.fourthwall.com/v1';
-const FW_SHOP='https://redeemedappreal.com';
-const productGrid=document.getElementById('fourthwall-products');
+const FW_API='https://storefront-api.fourthwall.com/v1';const FW_SHOP='https://redeemedappreal.com';
+const grid=document.getElementById('fourthwall-products');let allProducts=[];
 const money=(amount,currency='USD')=>new Intl.NumberFormat('en-US',{style:'currency',currency}).format(amount);
-function productCard(product,index){
- const variant=product.variants?.[0];const price=product.type==='BUNDLE'?product.price:variant?.unitPrice;
- const image=product.images?.[0]?.url||variant?.images?.[0]?.url||'';
- const soldOut=product.state?.type==='SOLD_OUT';
- const card=document.createElement('article');card.className='product-card live-product';
- const media=document.createElement('a');media.className='live-product-image';media.href=FW_SHOP+'/products/'+encodeURIComponent(product.slug||'');media.setAttribute('aria-label','View '+product.name);
- if(image){const img=document.createElement('img');img.src=image;img.alt=product.name||'Redeemed product';img.loading='lazy';media.appendChild(img);}else{const fallback=document.createElement('span');fallback.className='product-image-fallback';fallback.textContent='R.';media.appendChild(fallback);}
- const info=document.createElement('div');info.className='product-info live-product-info';const details=document.createElement('div');
- const name=document.createElement('h3');name.textContent=product.name||'Redeemed piece';const priceText=document.createElement('p');priceText.textContent=price?money(price.value,price.currency):'View product';details.append(name,priceText);
- const number=document.createElement('span');number.className='product-index';number.textContent=String(index+1).padStart(2,'0');info.append(details,number);
- const link=document.createElement('a');link.className='text-link';link.href=media.href;link.target='_blank';link.rel='noopener';link.textContent=soldOut?'CURRENTLY UNAVAILABLE':'SHOP THIS PIECE';const arrow=document.createElement('span');arrow.textContent='↗';link.appendChild(arrow);if(soldOut){link.removeAttribute('href');link.setAttribute('aria-disabled','true');}
- card.append(media,info,link);return card;
-}
-async function loadFourthwallProducts(){
- if(!productGrid)return;
- try{
-  const products=[];let page=0;let hasMore=true;
-  while(hasMore&&page<20){
-   const url=FW_API+'/collections/all/products?storefront_token='+encodeURIComponent(FW_TOKEN)+'&page='+page+'&size=50';
-   const response=await fetch(url);if(!response.ok)throw new Error('Fourthwall returned '+response.status);
-   const data=await response.json();products.push(...(data.results||[]));hasMore=Boolean(data.paging?.hasNextPage);page++;
-  }
-  productGrid.replaceChildren();
-  const available=products.filter(p=>p.state?.type!=='HIDDEN');
-  if(!available.length){const empty=document.createElement('p');empty.className='catalog-status';empty.textContent='The collection is being prepared. Check back soon.';productGrid.append(empty);return;}
-  available.forEach((product,index)=>productGrid.appendChild(productCard(product,index)));
- }catch(error){
-  console.error('Redeemed catalog could not load:',error);productGrid.replaceChildren();
-  const message=document.createElement('p');message.className='catalog-status';message.textContent='The collection could not load right now. Visit the Redeemed store to shop.';productGrid.append(message);
-  const link=document.createElement('a');link.className='button button-gold';link.href=FW_SHOP;link.target='_blank';link.rel='noopener';link.textContent='VISIT THE STORE';productGrid.append(link);
- }
-}
-loadFourthwallProducts();
+function categoryFor(p){const text=[p.name,p.description,p.type,...(p.tags||[]),...(p.collections||[]).map(x=>x.name||x.title)].filter(Boolean).join(' ').toLowerCase();
+ if(/hat|cap|beanie|bag|tote|bottle|mug|accessor/.test(text))return 'accessories';
+ if(/faith|jesus|christ|scripture|bible|prayer|cross|grace|redeem/.test(text))return 'faith';
+ if(/gym|fitness|training|active|sport|lifestyle/.test(text))return 'lifestyle';
+ return 'everyday';}
+function card(p,i){const variant=p.variants?.[0];const price=p.type==='BUNDLE'?p.price:variant?.unitPrice;const image=p.images?.[0]?.url||variant?.images?.[0]?.url||'';const sold=p.state?.type==='SOLD_OUT';const url=FW_SHOP+'/products/'+encodeURIComponent(p.slug||'');const el=document.createElement('article');el.className='product-card live-product';el.dataset.category=categoryFor(p);el.dataset.name=(p.name||'Redeemed piece').toLowerCase();el.dataset.price=String(price?.value??0);
+ const media=document.createElement('a');media.className='live-product-image';media.href=url;media.target='_blank';media.rel='noopener';media.setAttribute('aria-label','View '+(p.name||'product'));
+ if(image){const img=document.createElement('img');img.src=image;img.alt=p.name||'Redeemed product';img.loading='lazy';media.append(img);}else{const fallback=document.createElement('span');fallback.className='product-image-fallback';fallback.textContent='R.';media.append(fallback);}
+ const info=document.createElement('div');info.className='product-info live-product-info';const details=document.createElement('div');const name=document.createElement('h3');name.textContent=p.name||'Redeemed piece';const cost=document.createElement('p');cost.textContent=price?money(price.value,price.currency):'View product';details.append(name,cost);const num=document.createElement('span');num.className='product-index';num.textContent=String(i+1).padStart(2,'0');info.append(details,num);
+ const link=document.createElement('a');link.className='text-link';link.textContent=sold?'CURRENTLY UNAVAILABLE':'SHOP THIS PIECE';const arrow=document.createElement('span');arrow.textContent='↗';link.append(arrow);if(!sold){link.href=url;link.target='_blank';link.rel='noopener';}else link.setAttribute('aria-disabled','true');el.append(media,info,link);return el;}
+function renderProducts(){if(!grid)return;const category=document.getElementById('category-filter')?.value||'all';const sort=document.getElementById('sort-products')?.value||'featured';let list=allProducts.filter(p=>category==='all'||categoryFor(p)===category);if(sort==='name')list.sort((a,b)=>(a.name||'').localeCompare(b.name||''));if(sort==='price-low'||sort==='price-high'){const val=p=>(p.type==='BUNDLE'?p.price:p.variants?.[0]?.unitPrice)?.value??0;list.sort((a,b)=>sort==='price-low'?val(a)-val(b):val(b)-val(a));}
+ grid.replaceChildren();if(!list.length){const empty=document.createElement('p');empty.className='catalog-status';empty.textContent='No products in this collection yet. Explore all products to see the full range.';grid.append(empty);}else list.forEach((p,i)=>grid.append(card(p,i)));
+ const count=document.getElementById('product-count');if(count)count.textContent=String(list.length).padStart(2,'0')+' PIECES';}
+document.getElementById('category-filter')?.addEventListener('change',renderProducts);document.getElementById('sort-products')?.addEventListener('change',renderProducts);
+document.querySelectorAll('[data-category-link]').forEach(link=>link.addEventListener('click',()=>{const filter=document.getElementById('category-filter');if(filter){filter.value=link.dataset.categoryLink;renderProducts();}}));
+document.querySelectorAll('.view-button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.view-button').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button));});grid?.classList.toggle('list-view',button.dataset.view==='list');}));
+async function loadProducts(){if(!grid)return;try{const products=[];let page=0,more=true;while(more&&page<20){const response=await fetch(FW_API+'/collections/all/products?storefront_token='+encodeURIComponent(FW_TOKEN)+'&page='+page+'&size=50');if(!response.ok)throw Error('Storefront API '+response.status);const data=await response.json();products.push(...(data.results||[]));more=Boolean(data.paging?.hasNextPage);page++;}allProducts=products.filter(p=>p.state?.type!=='HIDDEN');renderProducts();if(!allProducts.length){grid.innerHTML='<p class="catalog-status">The collection is being prepared. Check back soon.</p>';}}catch(error){console.error('Redeemed catalog error',error);grid.innerHTML='<p class="catalog-status">The collection could not load right now. Visit the official store to shop.</p><a class="button button-gold" href="'+FW_SHOP+'" target="_blank" rel="noopener">VISIT THE STORE</a>';}}
+loadProducts();
