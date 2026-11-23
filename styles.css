@@ -244,3 +244,57 @@ footer{background:#faf9f6;border-color:#eee9df}
  .hero-editorial{background:linear-gradient(180deg,#fff 0%,#fbfaf7 70%,#f5f1e8 100%)}
  .hero-art{margin-top:10px}
 }
+
+
+/* REDEEMED — refreshed soft champagne background system */
+html{background:#f8f7f3}
+body{
+  background:
+    radial-gradient(ellipse at 12% 8%,rgba(218,203,174,.16),transparent 34%),
+    radial-gradient(ellipse at 88% 38%,rgba(229,219,198,.2),transparent 32%),
+    #fbfaf7;
+}
+.announcement{background:#f4f1e9;border-color:#e8e1d4}
+.site-header{background:rgba(251,250,247,.94);border-color:#e9e3d8}
+.hero-editorial{
+  background:
+    radial-gradient(ellipse at 76% 48%,rgba(210,190,151,.22),transparent 35%),
+    radial-gradient(ellipse at 15% 12%,rgba(255,255,255,.98),transparent 45%),
+    linear-gradient(115deg,#fff 0%,#faf8f3 52%,#f1ecdf 100%);
+}
+.hero-editorial:before{
+  border-color:rgba(165,137,85,.13);
+  box-shadow:0 0 0 28px rgba(255,255,255,.12),0 0 0 58px rgba(165,137,85,.025);
+}
+.hero-editorial:after{border-color:rgba(165,137,85,.11)}
+.hero-grain{
+  opacity:.12;
+  background-image:
+    radial-gradient(rgba(125,103,65,.16) .45px,transparent .6px);
+  background-size:5px 5px;
+}
+.hero-art:before{
+  background:radial-gradient(circle,rgba(211,194,160,.42),rgba(235,228,214,.2) 48%,transparent 73%);
+}
+.art-orbit{border-color:rgba(165,137,85,.16)}
+.orbit-two{border-color:rgba(197,166,107,.2)}
+.marquee{background:#f2efe8;border-color:#e7e0d4}
+.intro,.collection,.about{background:transparent}
+.section-wrap{position:relative}
+.collection{background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(247,245,239,.72))}
+.product-card{background:rgba(255,255,255,.88);border-color:#e9e3d8}
+.product-art{background:linear-gradient(145deg,#f1eee7,#faf9f6 55%,#e9e3d7)}
+.art-tee{background:linear-gradient(145deg,#eeebe3,#f8f6f1 55%,#e7e1d5)}
+.lifestyle-band{
+  background:
+    radial-gradient(ellipse at 80% 48%,rgba(209,190,154,.3),transparent 38%),
+    linear-gradient(105deg,#f0ede5 0%,#f8f6f1 48%,#eee8dc 100%);
+}
+.lifestyle-band:after{border-color:rgba(165,137,85,.16)}
+.about{background:rgba(255,255,255,.48)}
+footer{background:#f2efe8;border-color:#e6dfd2}
+@media(max-width:650px){
+  .hero-editorial{background:
+    radial-gradient(ellipse at 50% 72%,rgba(214,198,166,.25),transparent 40%),
+    linear-gradient(180deg,#fff 0%,#faf8f3 65%,#f0ebdf 100%)}
+}
