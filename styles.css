@@ -85,3 +85,61 @@ footer small{color:#77716a}
  .marquee div{animation-duration:25s}
 }
 @media(prefers-reduced-motion:reduce){.marquee div{animation:none}}
+
+
+/* REDEEMED — ivory white, antique gold & champagne gold palette */
+:root{--black:#fff;--panel:#f7f5f0;--gold:#9b7b3f;--gold-light:#c5a66b;--white:#211f1b;--muted:#77736b}
+body{background:#fff;color:#211f1b}
+.announcement{background:#f7f5f0;color:#92743d;border-bottom:1px solid #e8e1d3}
+.site-header{background:rgba(255,255,255,.94);border-bottom:1px solid #e8e1d3;backdrop-filter:blur(18px)}
+.brand,.footer-brand{color:#171613}
+.main-nav a{color:#5d5951}.main-nav a:hover,.main-nav a.active{color:#9b7b3f}
+.bag-link svg{stroke:#25231f}
+.hero{background:radial-gradient(ellipse at 50% 35%,rgba(197,166,107,.28),transparent 34%),linear-gradient(145deg,#fff 0%,#f6f3ec 58%,#eee8dc 100%)}
+.hero:before,.hero:after{border-color:rgba(155,123,63,.15)}
+.hero-lines{opacity:.18}
+.hero-wordmark{-webkit-text-stroke:1px rgba(155,123,63,.13)}
+.hero-cross{color:rgba(155,123,63,.09)}
+.halo{background:radial-gradient(circle,rgba(197,166,107,.3),rgba(197,166,107,.1) 42%,transparent 70%)}
+.hooded-figure{opacity:1;filter:drop-shadow(0 28px 35px rgba(45,35,18,.24))}
+.hood{border-color:rgba(155,123,63,.28)}
+.hero-content{color:#211f1b}
+.hero h1{color:#24211c;text-shadow:0 5px 24px rgba(120,96,53,.08)}
+.hero h1 span{color:#9b7b3f;text-shadow:none}
+.hero-subtitle{color:#5f584b}
+.hero-tagline{color:#5d574d}
+.eyebrow,.section-kicker{color:#98783e}
+.eyebrow span{background:#c5a66b}
+.button-gold{background:#9b7b3f;color:#fff;border-color:#9b7b3f}
+.button-gold:hover{background:#c5a66b;border-color:#c5a66b;color:#171613}
+.button-light{border-color:#9b7b3f;color:#765d30}
+.button-light:hover{background:#f0e8d8;color:#49391d}
+.hero-foot{color:#786744}.vertical-note{color:#9b7b3f}
+.marquee{background:#f7f5f0;border-color:#e6dece}
+.marquee div{color:#806536}.marquee i{color:#c5a66b}
+.intro{border-color:#e8e1d3}
+.intro h2,.about h2{color:#24211c}
+.intro h2 span,.about h2 span,.lifestyle-content h2 span{color:#9b7b3f}
+.intro>p:last-child,.about>p:not(.section-kicker){color:#716c63}
+.intro:before{color:rgba(155,123,63,.07)}
+.section-heading h2{color:#24211c}.section-heading h2 span{color:#9b7b3f}
+.heading-mark{color:#9b7b3f}
+.product-card{background:#fff;border-color:#e6dece;box-shadow:0 8px 28px rgba(45,35,18,.045)}
+.product-card:hover{border-color:#c5a66b;box-shadow:0 22px 45px rgba(45,35,18,.1)}
+.product-art{background:radial-gradient(ellipse at 50% 43%,#eee5d3 0%,#f7f5f0 47%,#ebe5d9 100%);border-color:#e7dfd0}
+.product-art span{color:#c5a66b;text-shadow:none}
+.product-info h3{color:#26231e}.product-info p{color:#777168}
+.product-index{color:#9b7b3f}.text-link{color:#92713a;border-color:#e8e1d3}
+.setup-note{border-color:#d8c69e;color:#806b42}
+.lifestyle-band{background:radial-gradient(ellipse at 78% 50%,rgba(197,166,107,.28),transparent 38%),linear-gradient(110deg,#f8f6f1,#eee7d9 65%,#fff);border-color:#e5dccb}
+.lifestyle-band:after{border-color:rgba(155,123,63,.2)}
+.lifestyle-content h2{color:#24211c}
+.lifestyle-content>p:not(.section-kicker){color:#716b60}
+.lifestyle-symbol{color:rgba(155,123,63,.1);text-shadow:none}
+.about blockquote{border-color:#e6dece;color:#353027}
+.about cite{color:#9b7b3f}
+footer{background:#f7f5f0;border-color:#e6dece}
+.footer-brand{color:#211f1b}.footer-brand span{color:#9b7b3f}
+footer>p{color:#92743d}footer small{color:#827c71}
+.footer-links a{color:#625d53}
+@media(max-width:700px){.main-nav{background:#fff;border-color:#e6dece}.menu-toggle span{background:#29251e}}
