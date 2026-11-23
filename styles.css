@@ -340,3 +340,38 @@ footer{background:linear-gradient(180deg,#f8f6f1,#f3efe7)}
    linear-gradient(180deg,#fff 0%,#fbfaf7 62%,#f2ede3 100%);
  }
 }
+
+
+/* LIFESTYLE PANEL — remove colored glyph, use restrained brand motif */
+.lifestyle-band{
+  background:
+    radial-gradient(ellipse at 78% 48%,rgba(213,197,165,.22),transparent 34%),
+    linear-gradient(110deg,#faf9f6 0%,#f1ece2 58%,#faf9f6 100%);
+}
+.lifestyle-band:after{border:1px solid rgba(155,123,63,.14)}
+.lifestyle-symbol{
+  width:clamp(230px,27vw,360px);
+  aspect-ratio:1;
+  right:13%;
+  font-size:0;
+  color:transparent;
+  border:1px solid rgba(155,123,63,.2);
+  border-radius:50%;
+  background:
+    linear-gradient(rgba(155,123,63,.18),rgba(155,123,63,.18)) center/1px 58% no-repeat,
+    linear-gradient(90deg,rgba(155,123,63,.18),rgba(155,123,63,.18)) center/58% 1px no-repeat;
+  opacity:.75;
+}
+.lifestyle-symbol:before{
+  content:"R.";
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  font:800 clamp(100px,14vw,180px) "Barlow Condensed",sans-serif;
+  letter-spacing:-.08em;
+  color:rgba(155,123,63,.12);
+}
+@media(max-width:700px){
+ .lifestyle-symbol{right:-8%;width:230px;opacity:.55}
+}
