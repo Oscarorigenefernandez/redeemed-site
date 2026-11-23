@@ -444,3 +444,16 @@ footer{background:linear-gradient(180deg,#f8f6f1,#f3efe7)}
 .page-hero{padding:70px 8%;background:#f5f1e8;border-bottom:1px solid #e8e0d2}
 .page-hero p{color:#8d7448;font-size:9px;letter-spacing:.22em}
 @media(max-width:700px){.main-nav{align-items:stretch}.nav-dropdown{width:100%;text-align:center}.nav-drop-panel{position:static;box-shadow:none;border:0;background:#faf8f3;margin-top:5px}.nav-drop-panel a{text-align:center}.shop-toolbar{align-items:stretch}.shop-toolbar label{flex:1;min-width:130px}.shop-toolbar select{width:100%;min-width:0}.view-controls{margin-left:0}.product-grid.list-view .live-product{grid-template-columns:112px 1fr;gap:12px}.product-grid.list-view .live-product-image{height:140px}.founder-teaser{align-items:flex-start}.founder-monogram{width:105px;font-size:70px;flex:none}.about-page{padding:70px 7%}.about-page .founder-panel{grid-template-columns:1fr;padding:25px}.about-page .founder-stamp{width:100px;font-size:50px}}
+
+/* HOMEPAGE FEATURED EDIT + DEDICATED SHOP */
+.featured-section{padding-top:85px;padding-bottom:75px}
+.featured-section .section-heading{align-items:end}
+.featured-section .section-heading>.text-link{font-size:9px;letter-spacing:.15em;color:#92713a}
+.featured-footer{text-align:center;margin-top:35px}
+.home-story-strip{padding:35px 7%;display:flex;align-items:center;justify-content:space-between;gap:20px;background:#f4f0e8;border-block:1px solid #e8e0d2}
+.home-story-strip p{font:600 14px "Barlow Condensed",sans-serif;letter-spacing:.18em;color:#62543b}
+.home-story-strip a{font-size:9px;letter-spacing:.16em;color:#92713a}
+.shop-page-hero{padding-top:78px;padding-bottom:78px}
+.shop-page-collection{min-height:55vh}
+.shop-page-collection .product-grid{margin-top:25px}
+@media(max-width:650px){.home-story-strip{align-items:flex-start;flex-direction:column}.featured-section{padding-top:65px;padding-bottom:60px}}
