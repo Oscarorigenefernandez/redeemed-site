@@ -389,3 +389,16 @@ footer{background:linear-gradient(180deg,#f8f6f1,#f3efe7)}
 .live-product .text-link{display:flex;align-items:center;justify-content:space-between}
 .live-product .text-link[aria-disabled="true"]{opacity:.5;cursor:not-allowed}
 @media(max-width:700px){.live-product-image{height:320px}}
+
+
+/* BRAND DIRECTION — inclusive purpose-led streetwear */
+.brand-pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding-top:0}
+.pillar-card{min-height:255px;padding:25px 23px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:14px;background:linear-gradient(145deg,#f8f6f1,#eee8dc);border:1px solid #e9e1d2;position:relative;overflow:hidden;transition:transform .25s,border-color .25s}
+.pillar-card:after{content:"";position:absolute;width:180px;height:180px;border:1px solid rgba(155,123,63,.15);border-radius:50%;right:-75px;top:-65px}
+.pillar-card:hover{transform:translateY(-4px);border-color:#c5a66b}
+.pillar-card>span{font-size:8px;letter-spacing:.22em;color:#9b7b3f}
+.pillar-card strong{font:600 clamp(26px,3vw,38px)/.98 "Barlow Condensed",sans-serif;letter-spacing:.015em;color:#292720}
+.pillar-card small{font-size:11px;color:#716b60}
+.pillar-card i{font-style:normal;font-size:8px;letter-spacing:.15em;color:#92713a;margin-top:8px}
+.about{background:#fbfaf7}
+@media(max-width:700px){.brand-pillars{grid-template-columns:1fr;padding-top:0}.pillar-card{min-height:210px}.pillar-card strong{font-size:36px}}
