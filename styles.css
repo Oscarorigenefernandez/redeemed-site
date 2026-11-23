@@ -402,3 +402,45 @@ footer{background:linear-gradient(180deg,#f8f6f1,#f3efe7)}
 .pillar-card i{font-style:normal;font-size:8px;letter-spacing:.15em;color:#92713a;margin-top:8px}
 .about{background:#fbfaf7}
 @media(max-width:700px){.brand-pillars{grid-template-columns:1fr;padding-top:0}.pillar-card{min-height:210px}.pillar-card strong{font-size:36px}}
+
+/* SITEWIDE NAVIGATION, SHOP CONTROLS & FOUNDER PAGES */
+.nav-dropdown{position:relative}
+.nav-drop-trigger{border:0;background:transparent;color:#6e6555;font:500 9px "DM Sans",sans-serif;letter-spacing:.22em;cursor:pointer;padding:12px 0}
+.nav-drop-trigger span{color:#a88a52;padding-left:5px}
+.nav-drop-panel{display:none;position:absolute;top:100%;left:-18px;min-width:220px;padding:10px;background:rgba(255,255,255,.98);border:1px solid #e8e0d2;box-shadow:0 18px 35px rgba(50,40,20,.1);z-index:30}
+.nav-dropdown:focus-within .nav-drop-panel,.nav-dropdown:hover .nav-drop-panel,.nav-drop-trigger[aria-expanded="true"]+.nav-drop-panel{display:grid}
+.nav-drop-panel a{padding:12px 13px!important;font-size:9px!important;letter-spacing:.12em!important;color:#5d5548!important}
+.nav-drop-panel a:hover{background:#f5f1e8;color:#92713a!important}
+.shop-toolbar{display:flex;align-items:end;gap:18px;flex-wrap:wrap;margin:-10px 0 28px;padding:16px 0;border-top:1px solid #eee8dc;border-bottom:1px solid #eee8dc}
+.shop-toolbar label{display:grid;gap:7px;font-size:8px;letter-spacing:.17em;color:#8c7853}
+.shop-toolbar select{min-width:150px;padding:11px 32px 11px 12px;border:1px solid #e3dccf;background:#fff;color:#39352d;font:12px "DM Sans",sans-serif}
+.view-controls{display:flex;gap:5px;margin-left:auto}
+.view-button{border:1px solid #e3dccf;background:transparent;padding:10px 13px;color:#8a7957;font-size:8px;letter-spacing:.15em;cursor:pointer}
+.view-button.active{background:#eee8dc;color:#4b402d;border-color:#c5b38e}
+.product-grid.list-view{grid-template-columns:1fr}
+.product-grid.list-view .live-product{display:grid;grid-template-columns:180px 1fr;align-items:center;gap:20px}
+.product-grid.list-view .live-product-image{height:180px;grid-row:span 2}
+.product-grid.list-view .live-product-info{align-self:end}
+.product-grid.list-view .live-product .text-link{align-self:start;margin:0 16px 12px 0}
+.founder-teaser{display:flex;align-items:center;justify-content:space-between;gap:35px;background:linear-gradient(110deg,#f8f6f1,#eee8dc);border-block:1px solid #e8e0d2}
+.founder-teaser h2,.faq-section h2,.about-page h1{font:600 clamp(48px,7vw,82px)/.9 "Barlow Condensed",sans-serif;color:#292720;margin:16px 0}
+.founder-teaser h2 span,.faq-section h2 span{color:#9b7b3f}
+.founder-teaser p:not(.section-kicker){max-width:420px;color:#716b60;font-size:13px;line-height:1.8;margin-bottom:25px}
+.founder-monogram{width:250px;aspect-ratio:1;border:1px solid rgba(155,123,63,.24);border-radius:50%;display:grid;place-items:center;color:rgba(155,123,63,.25);font:800 150px "Barlow Condensed",sans-serif}
+.faq-section{max-width:900px}
+.faq-section details{border-top:1px solid #e8e0d2;padding:18px 2px}
+.faq-section details:last-child{border-bottom:1px solid #e8e0d2}
+.faq-section summary{cursor:pointer;list-style:none;font-size:13px;color:#3e392f}
+.faq-section summary:after{content:"+";float:right;color:#9b7b3f;font-size:18px}
+.faq-section details[open] summary:after{content:"−"}
+.faq-section details p{max-width:650px;color:#756e62;font-size:12px;line-height:1.8}
+.about-page{min-height:65vh;padding:100px 8%;background:linear-gradient(120deg,#fff,#f3eee4)}
+.about-page-inner{max-width:1050px;margin:auto}
+.about-page .lead{max-width:650px;color:#665f53;font-size:17px;line-height:1.8}
+.about-page .story-copy{max-width:720px;color:#716b60;font-size:14px;line-height:2}
+.about-page .founder-panel{margin-top:65px;padding:45px;background:#f8f6f1;border:1px solid #e8e0d2;display:grid;grid-template-columns:1fr 180px;gap:30px;align-items:center}
+.about-page .founder-panel p{color:#716b60;font-size:13px;line-height:1.9}
+.about-page .founder-stamp{width:160px;aspect-ratio:1;border:1px solid #c9b88f;border-radius:50%;display:grid;place-items:center;color:#a88a52;font:800 80px "Barlow Condensed",sans-serif}
+.page-hero{padding:70px 8%;background:#f5f1e8;border-bottom:1px solid #e8e0d2}
+.page-hero p{color:#8d7448;font-size:9px;letter-spacing:.22em}
+@media(max-width:700px){.main-nav{align-items:stretch}.nav-dropdown{width:100%;text-align:center}.nav-drop-panel{position:static;box-shadow:none;border:0;background:#faf8f3;margin-top:5px}.nav-drop-panel a{text-align:center}.shop-toolbar{align-items:stretch}.shop-toolbar label{flex:1;min-width:130px}.shop-toolbar select{width:100%;min-width:0}.view-controls{margin-left:0}.product-grid.list-view .live-product{grid-template-columns:112px 1fr;gap:12px}.product-grid.list-view .live-product-image{height:140px}.founder-teaser{align-items:flex-start}.founder-monogram{width:105px;font-size:70px;flex:none}.about-page{padding:70px 7%}.about-page .founder-panel{grid-template-columns:1fr;padding:25px}.about-page .founder-stamp{width:100px;font-size:50px}}
